@@ -30,6 +30,7 @@ public class ShortestLongestStrings {
 		} while (!buf.equals("exit"));
 		arr[--i] = null;
 		index = i;
+		input.close();
 		return i;
 	}
 
