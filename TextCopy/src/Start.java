@@ -2,8 +2,8 @@
 public class Start {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		TextCopy app = new TextCopy();
+		app.setVisible(true);
 	}
 
 }

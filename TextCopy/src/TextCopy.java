@@ -8,11 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TextCopy implements ActionListener {
+public class TextCopy extends JFrame implements ActionListener {
 
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1603368713754859920L;
+
 	JTextField firstEdit = new JTextField();
 	JLabel firstLabel = new JLabel("Поле ввода");
 	JPanel firstPanel = new JPanel(new BorderLayout());
@@ -21,11 +23,10 @@ public class TextCopy implements ActionListener {
 	JLabel secondLabel = new JLabel("Поле вывода");
 	JPanel secondPanel = new JPanel(new BorderLayout());
 
-	JFrame frame = new JFrame("Окошко");
-
 	JButton button = new JButton("Скопировать");
 
 	public TextCopy() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		firstPanel.add(firstEdit, BorderLayout.SOUTH);
 		firstPanel.add(firstLabel, BorderLayout.NORTH);
@@ -33,19 +34,18 @@ public class TextCopy implements ActionListener {
 		secondPanel.add(secondLabel, BorderLayout.NORTH);
 		secondPanel.add(secondEdit, BorderLayout.SOUTH);
 
-		frame.setSize(200, 100);
-		frame.add(firstPanel, BorderLayout.WEST);
-		frame.add(secondPanel, BorderLayout.EAST);
+		setSize(200, 100);
+		add(firstPanel, BorderLayout.WEST);
+		add(secondPanel, BorderLayout.EAST);
 
 		button.addActionListener(this);
-		frame.add(button, BorderLayout.SOUTH);
+		add(button, BorderLayout.SOUTH);
 
-		frame.setVisible(true);
+		setTitle("Окошко");
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		secondEdit.setText(firstEdit.getText());
 		firstEdit.setText(null);
 	}
